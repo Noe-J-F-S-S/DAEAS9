@@ -31,6 +31,8 @@ namespace Semana9.Controllers
         {
             if (ModelState.IsValid)
             {
+                int maxId = db.productos.Max(x => x.idproducto);
+                productos.idproducto = maxId+1;
                 db.productos.Add(productos);
 
                 db.SaveChanges();
